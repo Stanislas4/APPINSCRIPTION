@@ -10,14 +10,16 @@ export class User {
   nom: string;
 
   @Column({ nullable: true })
-  prenom: string;
+  prenom?: string;
 
-  /*@Column()
-  age: number;*/
+  /*
+  @Column()
+  age: number;
+  */
+
+  @Column({ nullable: true, length: 8 })
+  contact?: string; // ex: 01020304 (exactement 8 chiffres)
 
   @Column({ nullable: true })
-  contact: string; // ex: 0102030405
-
-  @Column({ nullable: true })
-  statut: string
+  statut?: string; // ex: Passage, Intégration...
 }

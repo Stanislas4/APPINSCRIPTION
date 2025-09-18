@@ -3,8 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
-import { UploadController } from './upload/upload.controller';
-import { UploadModule } from './upload/upload.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,9 +18,9 @@ import { UploadModule } from './upload/upload.module';
       synchronize: true,
     }),
     UserModule,
-    UploadModule, // c’est ici qu’on gère UserController et UserService
+    AuthModule,
   ],
   providers: [AppService],
-  controllers: [UploadController], // UNIQUEMENT AppService ici
+  controllers: [], // UNIQUEMENT AppService ici
 })
 export class AppModule {}
