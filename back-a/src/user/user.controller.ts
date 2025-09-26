@@ -22,9 +22,4 @@ export class UserController {
     console.log('ID reçu pour suppression :', id); // Optionnel : pour vérifier côté backend
     return this.userService.deleteUser(id); // 🔁 Convertit string -> number
   }
-
-  @Post('signup')
-  async signup(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
 }

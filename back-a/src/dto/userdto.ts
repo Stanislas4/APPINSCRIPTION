@@ -15,19 +15,16 @@ export class CreateUserDto {
   @IsOptional()
   prenom?: string;
 
-  /*
-  @IsInt()
-  @Min(0)
-  @Max(120)
-  age: number;
-  */
+  @IsString()
+  @IsOptional()
+  @Matches(/^(01|05|07|25|27)\d{6}$/, { message: 'Le contact doit contenir exactement 8 chiffres et commencer par 01, 05, 07, 25 ou 27' })
+  contact?: string;
+
+  @IsString()
+  @IsNotEmpty({ message: 'Le statut est obligatoire' })
+  statut: string;
 
   @IsString()
   @IsOptional()
-  @Matches(/^\d{8}$/, { message: 'Le contact doit contenir exactement 8 chiffres' })
-  contact?: string;
-
-  @IsNotEmpty({ message: 'Le statut est obligatoire' })
-  @IsString()
-  statut: string;
+  egliseOrigine?: string;
 }

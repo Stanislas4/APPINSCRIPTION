@@ -12,14 +12,12 @@ export class User {
   @Column({ nullable: true })
   prenom?: string;
 
-  /*
-  @Column()
-  age: number;
-  */
-
   @Column({ nullable: true, length: 8 })
   contact?: string; // ex: 01020304 (exactement 8 chiffres)
 
   @Column({ nullable: true })
   statut?: string; // ex: Passage, Intégration...
+
+  @Column({ nullable: true })
+  egliseOrigine?: string; // Corrigé orthographe
 }
