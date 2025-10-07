@@ -3,11 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { MembrEntity } from 'src/entity/membrEntity';
+import { RegiEntity } from 'src/entity/regiEntity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([MembrEntity]),
+    TypeOrmModule.forFeature([RegiEntity]),
     JwtModule.register({
       secret: 'SECRET_KEY', // ⚠️ à mettre dans .env
       signOptions: { expiresIn: '1h' },

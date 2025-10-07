@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, /*Delete, Param*/ } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from '../dto/userdto';
 
@@ -17,9 +17,9 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  @Delete(':id')
+  /*@Delete(':id')
   delete(@Param('id') id: number) {
     console.log('ID reçu pour suppression :', id); // Optionnel : pour vérifier côté backend
     return this.userService.deleteUser(id); // 🔁 Convertit string -> number
-  }
+  }*/
 }

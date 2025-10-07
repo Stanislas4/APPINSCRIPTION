@@ -7,21 +7,21 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MembrEntity } from 'src/entity/membrEntity';
-import { MembrDto } from 'src/dto/membrdto';
+import { RegiEntity } from 'src/entity/regiEntity';
+import { RegiDto } from 'src/dto/regidto';
 
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectRepository(MembrEntity) private userRepo: Repository<MembrEntity>,
+    @InjectRepository(RegiEntity) private userRepo: Repository<RegiEntity>,
     private jwtService: JwtService,
   ) {}
 
   // ✅ Inscription
-  async register(dto: MembrDto) {
-  const { MembName, email, password } = dto;
+  async register(dto: RegiDto) {
+  const { RegiName, email, password } = dto;
 
-  if (!MembName || !email || !password) {
+  if (!RegiName || !email || !password) {
     throw new BadRequestException('Nom, email et mot de passe sont obligatoires');
   }
 
@@ -33,11 +33,12 @@ export class AuthService {
   const hash = await bcrypt.hash(password, 10);
 
   const user = this.userRepo.create({
-    MembName,
+    RegiName,
     email,
     password: hash,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return this.userRepo.save(user);
 }
 
@@ -57,7 +58,7 @@ export class AuthService {
     if (!valid) throw new UnauthorizedException('Mot de passe incorrect');
 
     // Générer le token JWT
-    const payload = { sub: user.MembId, email: user.email };
+    const payload = { sub: user.RegId, email: user.email };
     return {
       access_token: this.jwtService.sign(payload),
     };

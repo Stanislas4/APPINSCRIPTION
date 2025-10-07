@@ -2,12 +2,12 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class MembrEntity {
+export class RegiEntity {
   @PrimaryGeneratedColumn()
-  MembId: number;
+  RegId: number;
 
   @Column({ nullable: false })
-  MembName: string;
+  RegiName: string;
 
   @Column()
   email: string;

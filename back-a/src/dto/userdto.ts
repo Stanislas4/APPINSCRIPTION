@@ -17,7 +17,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsOptional()
-  @Matches(/^(01|05|07|25|27)\d{6}$/, { message: 'Le contact doit contenir exactement 8 chiffres et commencer par 01, 05, 07, 25 ou 27' })
+  @Matches(/^\d{10}$/, { message: 'Le contact doit contenir exactement 10 chiffres' })
   contact?: string;
 
   @IsString()
@@ -27,4 +27,8 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   egliseOrigine?: string;
+
+  @IsString()
+  @IsOptional()
+  Quartier?: string;
 }

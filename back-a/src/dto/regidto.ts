@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { IsEmail, IsNotEmpty, IsString, MinLength } from "class-validator";
-export class MembrDto {
+export class RegiDto {
 @IsString()
 @IsNotEmpty({ message: 'Le nom est obligatoire' })
-MembName: string;
+RegiName: string;
 
 @IsEmail({}, { message: 'Email invalide' })
 @IsNotEmpty({ message: 'L’email est obligatoire' })

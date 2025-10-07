@@ -4,6 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { IntegrantModule } from './integrant/integrant.module';
+import { GestionModule } from './gestion/gestion.module';
+import { SecuModule } from './secu/secu.module';
 
 @Module({
   imports: [
@@ -19,6 +22,9 @@ import { AuthModule } from './auth/auth.module';
     }),
     UserModule,
     AuthModule,
+    IntegrantModule,
+    GestionModule,
+    SecuModule,
   ],
   providers: [AppService],
   controllers: [], // UNIQUEMENT AppService ici
